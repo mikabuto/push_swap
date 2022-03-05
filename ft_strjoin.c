@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:36:57 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/11/08 17:22:31 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/03/05 14:17:12 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strlen(char *s)
 	ret = 0;
 	if (!s)
 		return (ret);
-	while(s[ret])
+	while (s[ret])
 		ret++;
 	return (ret);
 }
@@ -34,8 +34,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
+	s1_len = ft_strlen((char *)s1);
+	s2_len = ft_strlen((char *)s2);
 	s = (char *)malloc(s1_len + s2_len + 1);
 	if (!s)
 		return (NULL);

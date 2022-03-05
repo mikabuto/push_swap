@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/05 13:06:03 by mikabuto          #+#    #+#             */
+/*   Updated: 2022/03/05 13:06:03 by mikabuto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	stack_size(t_stack_elem *lst)
@@ -55,4 +67,20 @@ t_stack_elem	*record_stack(int argc, char **argv)
 	while (++i < argc)
 		push_back(&head, create_elem(ft_atoi(argv[i])));
 	return (head);
+}
+
+void	free_stack(t_stack_elem **head)
+{
+	t_stack_elem	*tmp;
+
+	if (!head || !(*head))
+		return ;
+	while (*head)
+	{
+		tmp = *head;
+		*head = (*head)->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	*head = NULL;
 }

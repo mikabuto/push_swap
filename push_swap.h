@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/05 13:06:11 by mikabuto          #+#    #+#             */
+/*   Updated: 2022/03/05 13:06:11 by mikabuto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -15,10 +27,31 @@ typedef struct s_stack_elem
 	int					rank;
 }	t_stack_elem;
 
+//	record_stack.c
 t_stack_elem	*record_stack(int argc, char **argv);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			**ft_split(char const *s, char c, int*);
-int				ft_atoi(const char *str);
 
+//	ft_strjoin.c
+int				ft_strlen(char *s);
+char			*ft_strjoin(char const *s1, char const *s2);
+
+//	ft_split.c
+char			**free_array(char **words);
+char			**ft_split(char const *s, char c, int *words_num);
+
+//	ft_atoi.c
+int				ft_isdigit(int c);
+long long int	ft_atoi(const char *str);
+
+//	errors.c
+int				ft_error(void);
+int				check_uniq(t_stack_elem *head);
+int				check_errors(int argc, char **argv);
+
+//	stack_utils.c
+int				stack_size(t_stack_elem *lst);
+t_stack_elem	*create_elem(int value);
+void			push_back(t_stack_elem **head, t_stack_elem *new);
+t_stack_elem	*record_stack(int argc, char **argv);
+void			free_stack(t_stack_elem **head);
 
 #endif

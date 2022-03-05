@@ -6,22 +6,22 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:27:40 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/11/08 21:12:40 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/03/05 14:15:34 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-static int	ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	sum;
+	int				i;
+	int				sign;
+	long long int	sum;
 
 	sum = 0;
 	i = 0;

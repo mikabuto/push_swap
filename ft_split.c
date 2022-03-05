@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 00:06:43 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/11/08 20:35:20 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/03/05 13:49:56 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,17 @@ static int	ft_words_num(char const *str, char c)
 	return (words_num);
 }
 
-static char	**free_array(int i, char **words)
+char	**free_array(char **words)
 {
-	while (i--)
+	int	i;
+
+	i = 0;
+	while (words[i])
+	{
 		free(words[i]);
+		words[i] = NULL;
+		++i;
+	}
 	free(words);
 	return (NULL);
 }
@@ -98,7 +105,7 @@ char	**ft_split(char const *s, char c, int *words_num)
 	{
 		words[i] = get_word(s, c, i);
 		if (!words[i])
-			return (free_array(i, words));
+			return (free_array(words));
 	}
 	words[i] = NULL;
 	return (words);
