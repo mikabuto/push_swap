@@ -45,7 +45,7 @@ static int	check_boundary(char *s)
 
 int	ft_error(void)
 {
-	write(2, "Error\n", 7);
+	write(2, "Error\n", 6);
 	return (-1);
 }
 
@@ -72,7 +72,7 @@ int	check_errors(int argc, char **argv)
 	int	i;
 
 	i = 0;
-	if (!argv)
+	if (!argv || argc < 2)
 		return (1);
 	while (++i < argc)
 	{

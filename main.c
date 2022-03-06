@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_stack_elem *head); 			//DELETEME
-
 int	main(int argc, char **argv)
 {
 	t_stack_elem	*head_a;
@@ -34,8 +32,7 @@ int	main(int argc, char **argv)
 	head_a = record_stack(argc, argv);
 	if (check_uniq(head_a))
 		return (ft_error());
-	//sort_stack(head_a);
-	print_stack(head_a);
+	stack_sort(&head_a);
 	free_stack(&head_a);
 	if (argv[0][0] == '!')
 		free_array(argv);

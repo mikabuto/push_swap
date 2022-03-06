@@ -37,7 +37,7 @@ t_stack_elem	*create_elem(int value)
 	new->b_rscore = -1;
 	new->a_score = -1;
 	new->b_score = -1;
-	new->rank = -1;
+	new->order = -1;
 	new->next = NULL;
 	return (new);
 }
