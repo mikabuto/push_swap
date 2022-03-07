@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   final_sorting.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 15:08:31 by mikabuto          #+#    #+#             */
+/*   Updated: 2022/03/07 15:08:31 by mikabuto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	define_order_case_sorted(t_stack_elem *head)
@@ -42,11 +54,11 @@ void	final_sort(t_stack_elem **head)
 	if (count <= size - count)
 	{
 		while (count-- > 0)
-			rotate(head, 'a');
+			rotate(head, 'a', 1);
 	}
 	else
 	{
 		while (count++ < size)
-			rev_rotate(head, 'a');
+			rev_rotate(head, 'a', 1);
 	}
 }

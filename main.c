@@ -17,6 +17,8 @@ int	main(int argc, char **argv)
 	t_stack_elem	*head_a;
 	char			*str;
 
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
 	{
 		str = ft_strjoin("!push_swap ", argv[1]);
@@ -31,7 +33,7 @@ int	main(int argc, char **argv)
 	}
 	head_a = record_stack(argc, argv);
 	if (check_uniq(head_a))
-		return (ft_error());
+		return (case_uniq_nums(head_a, argv));
 	stack_sort(&head_a);
 	free_stack(&head_a);
 	if (argv[0][0] == '!')

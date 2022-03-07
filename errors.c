@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 13:21:45 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/03/05 13:54:24 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/03/07 18:52:30 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 static int	check_non_digits(char *str)
 {
 	int	i;
+	int	flag;
 
 	i = 0;
+	flag = 0;
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\f'
 		|| str[i] == '\r' || str[i] == '\v')
 		i++;
@@ -24,11 +26,15 @@ static int	check_non_digits(char *str)
 		i++;
 	while (str[i])
 	{
+		if (ft_isdigit(str[i]))
+			flag = 1;
 		if (!ft_isdigit(str[i]))
 			return (1);
 		i++;
 	}
-	return (0);
+	if (flag)
+		return (0);
+	return (1);
 }
 
 static int	check_boundary(char *s)
@@ -72,10 +78,12 @@ int	check_errors(int argc, char **argv)
 	int	i;
 
 	i = 0;
-	if (!argv || argc < 2)
+	if (!argv || !argv[1] || !argv[1][0])
 		return (1);
 	while (++i < argc)
 	{
+		if (!argv[i] || !argv[i][0])
+			return (1);
 		if (check_non_digits(argv[i]))
 			return (1);
 		if (check_boundary(argv[i]))

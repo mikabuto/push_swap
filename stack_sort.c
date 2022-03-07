@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/07 15:59:02 by mikabuto          #+#    #+#             */
+/*   Updated: 2022/03/07 15:59:02 by mikabuto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	sorted(t_stack_elem *head)
@@ -75,16 +87,17 @@ static t_stack_elem	*fill_stack_b(t_stack_elem **head_a)
 	head_b = NULL;
 	while (size > 3)
 	{
-		if ((*head_a)->value == min || (*head_a)->value == med || (*head_a)->value == max)
-			rotate(head_a, 'a');
+		if ((*head_a)->value == min || (*head_a)->value == med \
+			|| (*head_a)->value == max)
+			rotate(head_a, 'a', 1);
 		else
 		{
-			push_to_other_stack(head_a, &head_b, 'b');
+			push_to_other_stack(head_a, &head_b, 'b', 1);
 			--size;
 		}
 	}
 	if (stack_size(*head_a) == 3 && !sorted(*head_a))
-		swap(head_a, 'a');
+		swap(head_a, 'a', 1);
 	return (head_b);
 }
 
